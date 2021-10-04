@@ -1,0 +1,4 @@
+Animals are cute, some cute animals are:
+{{range .}}
+{{.}}
+{{end}}
