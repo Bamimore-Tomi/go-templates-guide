@@ -1,0 +1,4 @@
+Hello {{.Name}}
+
+{{$aTrait := .Trait}}
+You are {{$aTrait}}
