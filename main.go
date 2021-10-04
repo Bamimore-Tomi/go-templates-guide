@@ -16,21 +16,25 @@ func init() {
 }
 
 func main() {
-	// Execute cuteAnimals into the template and  print to Stdout
-	cuteAnimals := []string{"Dogs", "Cats", "Mice", "Fish"}
-	err := temp.Execute(os.Stdout, cuteAnimals)
+	// Execute cuteAnimalsSpecies into the template and  print to Stdout
+	cuteAnimalsSpecies := map[string]string{
+		"Dogs": "German Shepherd",
+		"Cats": "Ragdoll",
+		"Mice": "Deer Mouse",
+		"Fish": "Goldfish",
+	}
+	err := temp.Execute(os.Stdout, cuteAnimalsSpecies)
 	if err != nil {
 		log.Fatalln(err)
 	}
-
 }
 
 // Animals are cute, some cute animals are:
 
-// Dogs
+// Cats , Ragdoll
 
-// Cats
+// Dogs , German Shepherd
 
-// Mice
+// Fish , Goldfish
 
-// Fish
+// Mice , Deer Mouse

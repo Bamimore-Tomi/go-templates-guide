@@ -1,4 +1,4 @@
 Animals are cute, some cute animals are:
-{{range .}}
-{{.}}
+{{range $key, $val := .}}
+{{$key}} , {{$val}}
 {{end}}
