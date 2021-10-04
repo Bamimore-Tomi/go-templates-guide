@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"math/rand"
 	"os"
 	"text/template"
 	"time"
@@ -14,19 +13,29 @@ var temp *template.Template
 // Using the init function to make sure the template is only parsed once in the program
 func init() {
 	// template.Must takes the reponse of template.ParseFiles and does error checking
-	temp = template.Must(template.ParseFiles("template-06.txt"))
+	temp = template.Must(template.New("template-08.txt").Funcs(funcMap).ParseFiles("template-08.txt"))
+}
+
+// Custom function must have only 1 return value, or 1 return value and an error
+func formatDate(timeStamp time.Time) string {
+	//Define layout for formatting timestamp to string
+	return timeStamp.Format("01-02-2006")
+}
+
+// Map name formatDate to formatDate function above
+var funcMap = template.FuncMap{
+	"formatDate": formatDate,
 }
 
 func main() {
-	// Execute cuteAnimalsSpecies into the template and  print to Stdout
-	rand.Seed(time.Now().UnixNano())
-	min := 100
-	max := 300
-	myNumber := rand.Intn((max-min)+1) + min
-	err := temp.Execute(os.Stdout, myNumber)
+	timeNow := time.Now()
+	err := temp.Execute(os.Stdout, timeNow)
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
 
-// Number 141 is less than 200
+// Hi,
+
+// Time before formatting : 2021-10-04 18:01:59.6659258 +0100 WAT m=+0.004952101
+// Time After formatting : 09-04-2021

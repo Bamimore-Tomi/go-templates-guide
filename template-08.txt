@@ -1,0 +1,4 @@
+Hi,
+
+Time before formatting : {{.}}
+Time After formatting : {{formatDate .}}

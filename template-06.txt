@@ -1,5 +1,0 @@
-{{if (lt .  200)}}
-Number {{.}} is less than 200
-{{else}}
-Number {{.}} is greater than 200
-{{end}}
