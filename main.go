@@ -2,8 +2,10 @@ package main
 
 import (
 	"log"
+	"math/rand"
 	"os"
 	"text/template"
+	"time"
 )
 
 // Declare type pointer to a template
@@ -17,24 +19,14 @@ func init() {
 
 func main() {
 	// Execute cuteAnimalsSpecies into the template and  print to Stdout
-	cuteAnimalsSpecies := map[string]string{
-		"Dogs": "German Shepherd",
-		"Cats": "Ragdoll",
-		"Mice": "Deer Mouse",
-		"Fish": "Goldfish",
-	}
-	err := temp.Execute(os.Stdout, cuteAnimalsSpecies)
+	rand.Seed(time.Now().UnixNano())
+	min := 100
+	max := 300
+	myNumber := rand.Intn((max-min)+1) + min
+	err := temp.Execute(os.Stdout, myNumber)
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
 
-// Animals are cute, some cute animals are:
-
-// Cats , Ragdoll
-
-// Dogs , German Shepherd
-
-// Fish , Goldfish
-
-// Mice , Deer Mouse
+// Number 141 is less than 200
