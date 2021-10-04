@@ -32,5 +32,4 @@ func main() {
 
 // Hello Oluwatomisin
 
-// You are doing great, keep learning.
-// Do not stop Oluwatomisin
+// You are a great writer
